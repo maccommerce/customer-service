@@ -1,4 +1,4 @@
-package br.com.maccommerce.exception;
+package br.com.maccommerce.customerservice.exception;
 
 
 import java.util.Date;
@@ -23,13 +23,24 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@ExceptionHandler(UsuarioNaoEncontadoException.class)
-	public final ResponseEntity<Object> handleCustomerNotFoundException(UsuarioNaoEncontadoException ex, WebRequest request) {
+	@ExceptionHandler(ClienteNaoEncontadoException.class)
+	public final ResponseEntity<Object> handleResponseEntity(ClienteNaoEncontadoException ex, WebRequest request) {
 		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
 		return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
 	}
 
-	
+	@ExceptionHandler(UserNameJaExisteException.class)
+	public final ResponseEntity<Object> handleResponseEntity(UserNameJaExisteException ex, WebRequest request) {
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity(exceptionResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+	}
+
+	@ExceptionHandler(ListaVaziaException.class)
+	public final ResponseEntity<Object> handleResponseEntity(ListaVaziaException ex, WebRequest request) {
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity(exceptionResponse, HttpStatus.NO_CONTENT);
+	}
+
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(
 			MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {

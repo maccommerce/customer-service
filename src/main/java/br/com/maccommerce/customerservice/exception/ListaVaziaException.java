@@ -1,9 +1,9 @@
-package br.com.maccommerce.exception;
+package br.com.maccommerce.customerservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.NO_CONTENT)
+//@ResponseStatus(HttpStatus.NO_CONTENT)
 public class ListaVaziaException extends RuntimeException{
 
 	public ListaVaziaException(String message) {

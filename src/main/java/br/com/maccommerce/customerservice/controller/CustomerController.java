@@ -23,17 +23,13 @@ import br.com.maccommerce.customerservice.service.CustomerDetailsService;
 @RestController
 public class CustomerController {
 
-	
-	@Autowired
-	public CustomerRepository customerRepository;
-	
 	@Autowired
 	CustomerDetailsService customerDetailsService;
 
 //
 	@GetMapping("/customers")
-	public List<Customer> retrieveAllCustomers() {
-		return customerRepository.findAll();
+	public List<Customer> listAllCustomers() {
+		return customerDetailsService.retrieveAllCustomer();
 
 	}
 

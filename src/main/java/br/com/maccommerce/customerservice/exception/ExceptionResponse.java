@@ -1,4 +1,4 @@
-package br.com.maccommerce.exception;
+package br.com.maccommerce.customerservice.exception;
 
 import java.util.Date;
 
