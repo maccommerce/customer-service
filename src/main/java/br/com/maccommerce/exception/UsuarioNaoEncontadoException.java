@@ -1,4 +1,4 @@
-package com.maccommerce.exception;
+package br.com.maccommerce.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

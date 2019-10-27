@@ -1,4 +1,4 @@
-package com.maccommerce.customerservice;
+package br.com.maccommerce.customerservice.service;
 
 import java.util.Optional;
 
@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.maccommerce.exception.UsuarioNaoEncontadoException;
+import br.com.maccommerce.customerservice.entity.Customer;
+import br.com.maccommerce.customerservice.repository.CustomerRepository;
+import br.com.maccommerce.exception.UsuarioNaoEncontadoException;
 
 @Service
 public class CustomerDetailsService {

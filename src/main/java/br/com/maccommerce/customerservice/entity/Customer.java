@@ -1,4 +1,4 @@
-package com.maccommerce.customerservice;
+package br.com.maccommerce.customerservice.entity;
 
 import java.util.Date;
 
