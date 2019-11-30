@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,15 +17,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import br.com.maccommerce.customerservice.auth.AuthServiceProxy;
 import br.com.maccommerce.customerservice.entity.Customer;
+import br.com.maccommerce.customerservice.entity.Login;
 import br.com.maccommerce.customerservice.repository.CustomerRepository;
 import br.com.maccommerce.customerservice.service.CustomerDetailsService;
 
-@RestController
-public class CustomerController {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+@RestController
+@CrossOrigin
+public class CustomerController {
+	
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	CustomerDetailsService customerDetailsService;
+	
+	@Autowired
+	AuthServiceProxy authServiceProxy;
 
 //
 	@GetMapping("/customers")
@@ -50,14 +65,39 @@ public class CustomerController {
 	
 //Insere um customer
 	 @PostMapping("/customers") 
-	 public ResponseEntity<Object> addCustomer(@Valid @RequestBody Customer newCustomer) throws Exception{
+	 public ResponseEntity<Object> addCustomer(@Valid @RequestBody String user) throws Exception{
 		 //Adiciona o Usuário
+
+		 ObjectMapper objectMapper = 
+				    new ObjectMapper()
+				        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+	        //read json file and convert to customer object
+	     Customer newCustomer = objectMapper.readValue(user, Customer.class);
+	     Login newLogin = objectMapper.readValue(user, Login.class);
+
 		 
+		 logger.info("Adicionando usuário...");
 		 URI local=null;
-		 if(customerDetailsService.insertCustomer(newCustomer)) {
-		 //Monta a URI de resposta baseado no usuário criado
-		 local = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCustomer.getId()).toUri();
-		 }
+
+		 try {
+			 logger.info("Registrando usuário...");
+			 logger.info(newLogin.toString());
+
+			 authServiceProxy.saveLogin(newLogin);
+			 customerDetailsService.insertCustomer(newCustomer);
+				 
+
+				 //Monta a URI de resposta baseado no usuário criado
+				// local = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCustomer.getId()).toUri();
+				  
+
+
+				
+		 }catch (Exception e) {
+			logger.error("Erro ao salvar usuário");
+		}
+
 		 
 		 return ResponseEntity.created(local).build();
 	 }

@@ -124,7 +124,7 @@ public class Customer {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
+	
 	@Override
 	public String toString() {
 		return String.format("Customer [id=%s, name=%s, email=%]", id, name, email);
