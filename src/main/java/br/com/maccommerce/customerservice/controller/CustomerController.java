@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -86,20 +87,24 @@ public class CustomerController {
 
 			 authServiceProxy.saveLogin(newLogin);
 			 customerDetailsService.insertCustomer(newCustomer);
-				 
 
 				 //Monta a URI de resposta baseado no usuário criado
-				// local = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCustomer.getId()).toUri();
+				 local = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCustomer.getId()).toUri();
 				  
+				 logger.info("Usuário registrado!!!!");
 
+				 return ResponseEntity.created(local).build();
 
 				
 		 }catch (Exception e) {
 			logger.error("Erro ao salvar usuário");
+			
+			return ResponseEntity
+		            .status(HttpStatus.BAD_REQUEST)
+		            .body("Error Message");
 		}
 
-		 
-		 return ResponseEntity.created(local).build();
+
 	 }
 	 
 //Altera um customer
