@@ -1,4 +1,4 @@
-package br.com.maccommerce.customerservice.entity;
+package br.com.maccommerce.singleregistryservice.entity;
 
 public class Login {
 	private String username;

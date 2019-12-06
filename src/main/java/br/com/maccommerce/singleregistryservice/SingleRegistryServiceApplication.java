@@ -1,4 +1,4 @@
-package br.com.maccommerce.customerservice;
+package br.com.maccommerce.singleregistryservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,13 +7,13 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"br.com.maccommerce.customerservice"})
-@EnableFeignClients("br.com.maccommerce.customerservice")
+@ComponentScan({"br.com.maccommerce.singleregistryservice"})
+@EnableFeignClients("br.com.maccommerce.singleregistryservice")
 @EnableDiscoveryClient
-public class CustomerServiceApplication {
+public class SingleRegistryServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CustomerServiceApplication.class, args);
+		SpringApplication.run(SingleRegistryServiceApplication.class, args);
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.com.maccommerce.customerservice.service;
+package br.com.maccommerce.singleregistryservice.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import br.com.maccommerce.customerservice.entity.Customer;
-import br.com.maccommerce.customerservice.exception.ClienteNaoEncontadoException;
-import br.com.maccommerce.customerservice.exception.ListaVaziaException;
-import br.com.maccommerce.customerservice.exception.UserNameJaExisteException;
-import br.com.maccommerce.customerservice.repository.CustomerRepository;
+import br.com.maccommerce.singleregistryservice.entity.Customer;
+import br.com.maccommerce.singleregistryservice.exception.ClienteNaoEncontadoException;
+import br.com.maccommerce.singleregistryservice.exception.ListaVaziaException;
+import br.com.maccommerce.singleregistryservice.exception.UserNameJaExisteException;
+import br.com.maccommerce.singleregistryservice.repository.CustomerRepository;
 
 @Service
 public class CustomerDetailsService {

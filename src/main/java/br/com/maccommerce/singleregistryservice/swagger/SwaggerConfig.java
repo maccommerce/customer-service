@@ -1,4 +1,4 @@
-package br.com.maccommerce.customerservice.swagger;
+package br.com.maccommerce.singleregistryservice.swagger;
 
 import org.springframework.context.annotation.Configuration;
 

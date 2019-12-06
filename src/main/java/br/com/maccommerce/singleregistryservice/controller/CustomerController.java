@@ -1,4 +1,4 @@
-package br.com.maccommerce.customerservice.controller;
+package br.com.maccommerce.singleregistryservice.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -21,11 +21,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.maccommerce.customerservice.auth.AuthServiceProxy;
-import br.com.maccommerce.customerservice.entity.Customer;
-import br.com.maccommerce.customerservice.entity.Login;
-import br.com.maccommerce.customerservice.repository.CustomerRepository;
-import br.com.maccommerce.customerservice.service.CustomerDetailsService;
+import br.com.maccommerce.singleregistryservice.auth.AuthServiceProxy;
+import br.com.maccommerce.singleregistryservice.entity.Customer;
+import br.com.maccommerce.singleregistryservice.entity.Login;
+import br.com.maccommerce.singleregistryservice.repository.CustomerRepository;
+import br.com.maccommerce.singleregistryservice.service.CustomerDetailsService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

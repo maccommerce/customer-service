@@ -1,4 +1,4 @@
-package br.com.maccommerce.customerservice;
+package br.com.maccommerce.singleregistryservice;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import br.com.maccommerce.customerservice.entity.Customer;
-import br.com.maccommerce.customerservice.entity.TipoPessoa;
-import br.com.maccommerce.customerservice.repository.CustomerRepository;
+import br.com.maccommerce.singleregistryservice.entity.Customer;
+import br.com.maccommerce.singleregistryservice.entity.TipoPessoa;
+import br.com.maccommerce.singleregistryservice.repository.CustomerRepository;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CustomerServiceApplicationTests {
+public class SingleRegistryServiceApplicationTests {
 
 	@Test
 	public void contextLoads() {
