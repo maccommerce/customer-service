@@ -11,7 +11,7 @@ import br.com.maccommerce.singleregistryservice.entity.Customer;
 import br.com.maccommerce.singleregistryservice.entity.Login;
 
 
-@FeignClient(name="auth-service", url="localhost:8000")
+@FeignClient(name="auth-service", url="${AUTH_SERVICE_URL}")
 public interface AuthServiceProxy {
 	
 	@PostMapping("/register/1003")

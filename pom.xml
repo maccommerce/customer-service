@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.uece.maccommerce</groupId>
-	<artifactId>customer-service</artifactId>
+	<artifactId>single-registry-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customer-service</name>
+	<name>single-registry-service</name>
 	<description>Project for Spring Boot</description>
 
 	<properties>
@@ -70,6 +70,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
