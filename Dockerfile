@@ -1,4 +1,5 @@
 FROM anapsix/alpine-java
-ADD target/customer-service-0.0.1-SNAPSHOT.jar customer-service.jar
+MAINTAINER Eduardo Filho <filhoeduardo83@gmail.com>
+ADD target/single-registry-service.jar single-registry-service.jar
 EXPOSE 7000
-ENTRYPOINT ["java","-jar","customer-service.jar"]
+ENTRYPOINT ["java","-jar","single-registry-service.jar"]
