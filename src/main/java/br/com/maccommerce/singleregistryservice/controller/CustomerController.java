@@ -80,7 +80,7 @@ public class CustomerController {
 		 URI local=null;
 
 		 try {
-			 logger.info("Registrando usuário...");
+			 logger.info("Registrando usuário usando Feign...");
 			 logger.info(newLogin.toString());
 
 			 authServiceProxy.saveLogin(newLogin);
@@ -89,7 +89,7 @@ public class CustomerController {
 				 //Monta a URI de resposta baseado no usuário criado
 				 local = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCustomer.getId()).toUri();
 				  
-				 logger.info("Usuário registrado!!!!");
+				 logger.info("Usuário registrado usando Feign!!!!");
 
 				 return ResponseEntity.created(local).build();
 
