@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan({"br.com.maccommerce.singleregistryservice"})
-@EnableFeignClients("br.com.maccommerce.singleregistryservice")
+@EnableFeignClients
 @EnableDiscoveryClient
 public class SingleRegistryServiceApplication {
 
