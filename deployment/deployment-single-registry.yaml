@@ -96,7 +96,7 @@ spec:
             claimName: database-persistent-volume-claim-c
       containers:
       - name: single-registry-postgres
-        image: filhoeduardo83/login-postgres:1.0
+        image: filhoeduardo83/alpine-postgres:1.0
         ports:
         - containerPort: 5432
         volumeMounts:
