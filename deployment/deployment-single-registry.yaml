@@ -19,23 +19,20 @@ metadata:
   name: single-registry-service
   labels:
     app: single-registry-service
-    version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: single-registry-service
-      version: v1
   template:
     metadata:
       labels:
         app: single-registry-service
-        version: v1
       name: single-registry-service
     spec:
       containers:
         - name: single-registry-service
-          image: filhoeduardo83/single-registry-service:1.0
+          image: filhoeduardo83/single-registry:1.0
           ports:
             - containerPort: 7000
           env:
